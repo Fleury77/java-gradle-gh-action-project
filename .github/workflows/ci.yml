@@ -37,6 +37,13 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
+      
+    - name: Build and push Docker image
+      uses: docker/login-actions@v2
+      with:
+        
+         username: ${{ secrets.DOCKERHUB_USERNAME }}
+         password: ${{ secrets.DOCKERHUB_TOKEN }}
      
      # uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
       #with:
